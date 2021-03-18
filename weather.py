@@ -1,14 +1,12 @@
-import json
-
+import configparser
 from wman import WeatherMan
 
-# Load API Keys
-file_apikeys = open("apikeys.json")
-apikeys = json.load(file_apikeys)
-file_apikeys.close()
+# Load API Keys and initialize configparser
+config = configparser.ConfigParser()
+config.read('config.ini')
 
 weatherman = WeatherMan()
-weatherman.set_key(apikeys["weathercom"])
+weatherman.set_key(config["WeatherCom"]["API_KEY"])
 
 lat, lon = input("Enter latitude: "), input("Enter longitude: ")
 cod = weatherman.get_currents_on_demand(lat, lon)["vt1observation"]
@@ -19,15 +17,15 @@ twenty_four_hour = five_day[1]
 thirty_six_hour = five_day[2]
 
 print("Current Weather Conditions:")
-print("  " + str(cod["phrase"]))
-print("  Temp: " + str(cod["temperature"]) + "°F") 
-print("  Wind: " + str(cod["windDirCompass"]) + " @ " + str(cod["windSpeed"]) + " MPH")
+print("\t" + str(cod["phrase"]))
+print("\tTemp: " + str(cod["temperature"]) + "°F") 
+print("\tWind: " + str(cod["windDirCompass"]) + " @ " + str(cod["windSpeed"]) + " MPH")
 
 if "gust" in cod: 
-    print("  Wind Gust: " + str(cod["gust"]))
+    print("\tWind Gust: " + str(cod["gust"]))
 
-print("  Humidity: " + str(cod["humidity"]) + "%")
-print("  Feels Like: " + str(cod["feelsLike"]) + "°F")
+print("\tHumidity: " + str(cod["humidity"]) + "%")
+print("\tFeels Like: " + str(cod["feelsLike"]) + "°F")
 print("")
 print("36 Hour Forecast:")
 
@@ -56,10 +54,7 @@ print(" 5 Day Forecast:")
 for days in range(0, 6):
     if (days < len(five_day)) and ("day" in five_day[days]):
         print(
-            str(five_day[days]["day"]["daypart_name"]) +
-            ": " +
-            str(five_day[days]["day"]["shortcast"]) + " | " + 
-            str(five_day[days]["day"]["temp"]) +
-            "°F"
+            str(five_day[days]["day"]["daypart_name"])  + ": "  +
+            str(five_day[days]["day"]["shortcast"])     + " | " + 
+            str(five_day[days]["day"]["temp"])          + "°F"
         )
-        # test
