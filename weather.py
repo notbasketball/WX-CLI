@@ -49,10 +49,3 @@ for days in range(0, 6):
             str(five_day[days]["day"]["shortcast"] + " | ").rjust(30)   + 
             str(five_day[days]["day"]["temp"])          + "°F"
         )
-        print(
-            str(five_day[days]["day"]["daypart_name"]) +
-            ": " +
-            str(five_day[days]["day"]["shortcast"]) + " | " + 
-            str(five_day[days]["day"]["temp"]) +
-            "°F"
-        )
