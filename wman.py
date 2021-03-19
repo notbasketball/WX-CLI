@@ -2,7 +2,7 @@ import urllib, urllib.request
 import json
 
 class WeatherMan:
-    base_url = 'https://api.weather.com/'
+    base_url = 'http://api.weather.com/'
 
     def __init__(self):
         self.apikey = None
@@ -19,9 +19,7 @@ class WeatherMan:
         url_full = self.base_url + url + '?' + urllib.parse.urlencode(params)
 
         # the http request itself
-        req = urllib.request.Request(url_full, headers = {
-            'User-Agent': 'Mozilla/5.0 (Mac OS X 11.2.1)'
-        })
+        req = urllib.request.Request(url_full)
 
         # open a connection, read data & close
         conn = urllib.request.urlopen(req)
