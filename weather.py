@@ -32,24 +32,14 @@ print("36 Hour Forecast:")
 
 # forecasts.0.day = only in day time
 # forecasts.0.night = always
-
-if "daypart_name" in twelve_hour:
-    print("\t" + str(twelve_hour["daypart_name"]))
-
 if "day" in twelve_hour:
     print("\t" + str(twelve_hour["day"]["daypart_name"]) + ": " + str(twelve_hour["day"]["narrative"]))
-
-print("\t" + str(twelve_hour["night"]["daypart_name"]) + ": " + str(twelve_hour["night"]["narrative"]))
-# twelvehour = today or tonight depending on the day, twentyFourhour = tonight or tomorrow depending on the day
-if "day" in twenty_four_hour: 
-    if "day" not in twelve_hour:
-        print("\t" + str(twenty_four_hour["day"]["daypart_name"]) + ": " + str(twenty_four_hour["day"]["narrative"]))
-    print("\t" + str(twenty_four_hour["night"]["daypart_name"]) + ": " + str(twenty_four_hour["night"]["narrative"]))
+    print("\t" + str(twelve_hour["night"]["daypart_name"]) + ": " + str(twelve_hour["night"]["narrative"]))
+    print("\t" + str(twenty_four_hour["day"]["daypart_name"]) + ": " + str(twenty_four_hour["day"]["narrative"]))
 else:
-    print(str(twenty_four_hour["day"]["daypart_name"]) + ": " + str(twenty_four_hour["day"]["narrative"]))
-    print(str(twenty_four_hour["night"]["daypart_name"]) + ": " + str(twenty_four_hour["night"]["narrative"]))
-# 4pm tonight, tomorrow, tomorrowNight 
-# line 45 = 8am today, tonight, Tomorrow
+    print("\t" + str(twelve_hour["night"]["daypart_name"]) + ": " + str(twelve_hour["night"]["narrative"]))
+    print("\t" + str(twenty_four_hour["day"]["daypart_name"]) + ": " + str(twenty_four_hour["day"]["narrative"]))
+    print("\t" + str(twenty_four_hour["night"]["daypart_name"]) + ": " + str(twenty_four_hour["night"]["narrative"]))
 print("")
 print("5 Day Forecast:")
 for days in range(0, 6):
@@ -58,4 +48,11 @@ for days in range(0, 6):
             str(five_day[days]["day"]["daypart_name"] + ": ").ljust(15) +
             str(five_day[days]["day"]["shortcast"] + " | ").rjust(30)   + 
             str(five_day[days]["day"]["temp"])          + "°F"
+        )
+        print(
+            str(five_day[days]["day"]["daypart_name"]) +
+            ": " +
+            str(five_day[days]["day"]["shortcast"]) + " | " + 
+            str(five_day[days]["day"]["temp"]) +
+            "°F"
         )
