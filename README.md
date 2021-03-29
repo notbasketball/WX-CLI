@@ -4,7 +4,7 @@ Welcome to WX-CLI... a command line based weather.com API parser.
 ## Features
 When executed with `python3 weather.py`, after it asks you for your longitude and latitude, WX-CLI will give you weather data. Such as Current Conditions, the 36 Hour Forecast, and the Extended Forecast. An expected output may look like the following:
 
-![carbon](https://user-images.githubusercontent.com/33968601/111709732-76f93b00-8848-11eb-9560-7d29e9d807cd.png)
+![carbon](https://cdn.discordapp.com/attachments/731261406091018335/826218797961707550/unknown.png)
 
 ## Download/Installation
 
