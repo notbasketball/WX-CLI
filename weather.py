@@ -1,4 +1,5 @@
 import configparser
+import time
 from wman import WeatherMan
 
 # Load API Keys and initialize configparser
@@ -7,11 +8,11 @@ config.read('config.ini')
 
 weatherman = WeatherMan()
 weatherman.set_key(config["WeatherCom"]["API_KEY"])
-
+hour = time.localtime()
 lat, lon = input("Enter latitude: "), input("Enter longitude: ")
 print("")
 cod = weatherman.get_currents_on_demand(lat, lon)["vt1observation"]
-
+hourly = weatherman.get_hourly(lat, lon)["forecasts"]
 five_day = weatherman.get_five_day(lat, lon)["forecasts"]
 twelve_hour = five_day[0]
 twenty_four_hour = five_day[1]
@@ -27,6 +28,14 @@ if "gust" in cod:
 
 print("\t" + "Humidity: ".ljust(12) + str(cod["humidity"]) + "%")
 print("\t" + "Feels Like: ".ljust(12) + str(cod["feelsLike"]) + "°F")
+print("")
+print("6 Hour Forecast:")
+for getHourly in range(0, 6):
+    if (getHourly < len(hourly)):
+        print("\t" + "Hour " + (str((hour.tm_hour + getHourly) % 24) + ": ").ljust(0) + 
+            (hourly[getHourly]["phrase_32char"] + " | ").rjust(12)+ 
+            str(hourly[getHourly]["temp"]) + "°F"
+        )
 print("")
 print("36 Hour Forecast:")
 

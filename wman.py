@@ -48,7 +48,12 @@ class WeatherMan:
             'units': self.params['units'],
             'format': 'json'
         })
-
+    def get_hourly(self, lat, lon, params = { }):
+    	return self.get_request_json('v1/geocode/{0}/{1}/forecast/hourly/6hour.json'.format(lat, lon), {
+    	'apiKey': self.apikey, 
+    	'language': self.params['lang'],
+    	'units': self.params['units']
+    	})
     def get_five_day(self, lat, lon, params = { }):
         return self.get_request_json('v1/geocode/{0}/{1}/forecast/daily/5day.json'.format(lat, lon), {
             'apiKey': self.apikey,
