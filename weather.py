@@ -32,7 +32,7 @@ print("")
 print("6 Hour Forecast:")
 for getHourly in range(0, 6):
     if (getHourly < len(hourly)):
-        print("\t" + "Hour " + (str((hour.tm_hour + getHourly) % 24) + ": ").ljust(0) + 
+        print("\t" + "Hour " + (str((hour.tm_hour + getHourly + 1) % 24) + ": ").ljust(0) + 
             (hourly[getHourly]["phrase_32char"] + " | ").rjust(12)+ 
             str(hourly[getHourly]["temp"]) + "°F"
         )
