@@ -18,6 +18,8 @@ twelve_hour = five_day[0]
 twenty_four_hour = five_day[1]
 thirty_six_hour = five_day[2]
 
+print("Updated at: " + str(hour.tm_year) + "-" + str(hour.tm_mon).zfill(2) + "-" + str(hour.tm_mday).zfill(2) + " // " + str(hour.tm_hour).zfill(2) + ":" + str(hour.tm_min).zfill(2))
+print("")
 print("Current Weather Conditions:")
 print("\t" + str(cod["phrase"]))
 print("\t" + "Temp: ".ljust(12) + str(cod["temperature"]) + "°F") 
@@ -52,9 +54,15 @@ else:
 print("")
 print("5 Day Forecast:")
 for days in range(0, 6):
-    if (days < len(five_day)) and ("day" in five_day[days]):
+    if (days < len(five_day)) and ("day" in five_day[days]) and (five_day[days]["day"]["pop"] > 30):
         print("\t" + 
-            str(five_day[days]["day"]["daypart_name"] + ": ").ljust(15) +
-            str(five_day[days]["day"]["shortcast"] + " | ").rjust(30)   + 
-            str(five_day[days]["day"]["temp"])          + "°F"
+            (five_day[days]["day"]["daypart_name"] + ": ").ljust(15) +
+            (five_day[days]["day"]["shortcast"] + " | ").rjust(30) + 
+            str(five_day[days]["day"]["temp"])          + "°F" + " / " + str(five_day[days]["night"]["temp"]) + "°F" + " // Chance of " + (five_day[days]["day"]["precip_type"]) + ": " + str(five_day[days]["day"]["pop"]) + "%"
+        )   
+    else: 
+        print("\t" + 
+        (five_day[days]["day"]["daypart_name"] + ": ").ljust(15) +
+        (five_day[days]["day"]["shortcast"] + " | ").rjust(30) + 
+        str(five_day[days]["day"]["temp"])          + "°F" + " / " + str(five_day[days]["night"]["temp"]) + "°F"
         )
