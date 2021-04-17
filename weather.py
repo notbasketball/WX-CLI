@@ -53,7 +53,7 @@ else:
     print("\t" + str(twenty_four_hour["night"]["daypart_name"]) + ": " + str(twenty_four_hour["night"]["narrative"]))
 print("")
 print("5 Day Forecast:")
-for days in range(0, 6):
+for days in range(1, 6):
     if (days < len(five_day)) and ("day" in five_day[days]) and (five_day[days]["day"]["pop"] > 30):
         print("\t" + 
             (five_day[days]["day"]["daypart_name"] + ": ").ljust(15) +
