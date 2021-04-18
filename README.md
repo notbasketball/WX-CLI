@@ -19,10 +19,4 @@ Linux/UNIX: https://www.python.org/downloads/source/
 * On Arch, the command would be `sudo pacman -S python3`
 
 ### Installation
-Now, at the top of this page you should see a green `Code` button. Click that, download the zip, extract wherever. Populate the .ini file as such that it is an object containing one property entitled `weathercom` (see example below). Open a terminal window in the WX-CLI folder. Type in `python3 weather.py`, enter your latitude and longitude, and you should be getting data! 
-
-### Example config.ini
-```
-[WeatherCom]
-API_KEY=<Your API-Key here>
-```
+Now, at the top of this page you should see a green `Code` button. Click that, download the zip, extract wherever. Open a terminal window in the WX-CLI folder. Type in `python3 weather.py`, enter your latitude and longitude, and you should be getting data! 
