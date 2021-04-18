@@ -9,7 +9,7 @@ config.read('config.ini')
 weatherman = WeatherMan()
 weatherman.set_key(config["WeatherCom"]["API_KEY"])
 hour = time.localtime()
-lat, lon = input("Enter latitude: "),  "-" + input("Enter longitude: ")
+lat, lon = input("Enter latitude: "), input("Enter longitude: ")
 print("")
 cod = weatherman.get_currents_on_demand(lat, lon)["vt1observation"]
 hourly = weatherman.get_hourly(lat, lon)["forecasts"]
