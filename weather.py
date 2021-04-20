@@ -11,6 +11,7 @@ weatherman.set_key(config["WeatherCom"]["API_KEY"])
 hour = time.localtime()
 lat, lon = input("Enter latitude: "), input("Enter longitude: ")
 print("")
+alert = weatherman.alerts(lat, lon)
 cod = weatherman.get_currents_on_demand(lat, lon)["vt1observation"]
 hourly = weatherman.get_hourly(lat, lon)["forecasts"]
 five_day = weatherman.get_five_day(lat, lon)["forecasts"]
@@ -20,8 +21,13 @@ thirty_six_hour = five_day[2]
 
 
 print("Updated at: " + str(hour.tm_year) + "-" + str(hour.tm_mon).zfill(2) + "-" + str(hour.tm_mday).zfill(2) + " // " + str(hour.tm_hour).zfill(2) + ":" + str(hour.tm_min).zfill(2))
-print("WX-CLI v1.4")
-print("")
+print("WX-CLI v1.5")
+if alert != None:
+    print("")
+    print("Alerts:")
+    for x in alert["alerts"]:
+        print("\t" + x["headlineText"])
+    print("")
 print("Current Weather Conditions:")
 print("\t" + str(cod["phrase"]))
 print("\t" + "Temp: ".ljust(12) + str(cod["temperature"]) + "°F") 
