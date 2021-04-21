@@ -21,7 +21,7 @@ thirty_six_hour = five_day[2]
 
 
 print("Updated at: " + str(hour.tm_year) + "-" + str(hour.tm_mon).zfill(2) + "-" + str(hour.tm_mday).zfill(2) + " // " + str(hour.tm_hour).zfill(2) + ":" + str(hour.tm_min).zfill(2))
-print("WX-CLI v1.5")
+print("WX-CLI v1.5.1")
 if alert != None:
     print("")
     print("Alerts:")
@@ -79,3 +79,4 @@ for days in range(1, 6):
         (five_day[days]["day"]["shortcast"] + " | ").rjust(30) + 
         str(five_day[days]["day"]["temp"])          + "°F" + " / " + str(five_day[days]["night"]["temp"]) + "°F"
         )
+print("\n" + "Press enter to exit")
