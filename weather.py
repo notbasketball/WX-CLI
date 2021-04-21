@@ -79,4 +79,4 @@ for days in range(1, 6):
         (five_day[days]["day"]["shortcast"] + " | ").rjust(30) + 
         str(five_day[days]["day"]["temp"])          + "°F" + " / " + str(five_day[days]["night"]["temp"]) + "°F"
         )
-print("\n" + "Press enter to exit")
+input("\n" + "Press enter to exit")
