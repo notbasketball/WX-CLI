@@ -28,6 +28,8 @@ if alert != None:
     for x in alert["alerts"]:
         print("\t" + x["headlineText"])
     print("")
+else: 
+    print("")
 print("Current Weather Conditions:")
 print("\t" + str(cod["phrase"]))
 print("\t" + "Temp: ".ljust(12) + str(cod["temperature"]) + "°F") 
