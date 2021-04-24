@@ -21,7 +21,7 @@ thirty_six_hour = five_day[2]
 
 
 print("Updated at: " + str(hour.tm_year) + "-" + str(hour.tm_mon).zfill(2) + "-" + str(hour.tm_mday).zfill(2) + " // " + str(hour.tm_hour).zfill(2) + ":" + str(hour.tm_min).zfill(2))
-print("WX-CLI v1.5.1")
+print("WX-CLI v1.5.2")
 if alert != None:
     print("")
     print("Alerts:")
@@ -43,7 +43,7 @@ print("\t" + "Feels Like: ".ljust(12) + str(cod["feelsLike"]) + "°F")
 print("")
 print("6 Hour Forecast:")
 for getHourly in range(0, 6):
-    if (getHourly < len(hourly)) and (hourly[getHourly]["pop"] > 30):
+    if (getHourly < len(hourly)) and (hourly[getHourly]["pop"] >= 30):
         print("\t" + "Hour " + (str((hour.tm_hour + getHourly + 1) % 24) + ": ").ljust(10) + 
             (hourly[getHourly]["phrase_32char"] + " | ").rjust(20) +
             str(hourly[getHourly]["temp"]) + "°F" + " | " + "Chance of " + (hourly[getHourly]["precip_type"]) + ": " + str(hourly[getHourly]["pop"]) + "%"
@@ -69,7 +69,7 @@ else:
 print("")
 print("5 Day Forecast:")
 for days in range(1, 6):
-    if (days < len(five_day)) and ("day" in five_day[days]) and (five_day[days]["day"]["pop"] > 30):
+    if (days < len(five_day)) and ("day" in five_day[days]) and (five_day[days]["day"]["pop"] >= 30):
         print("\t" + 
             (five_day[days]["day"]["daypart_name"] + ": ").ljust(15) +
             (five_day[days]["day"]["shortcast"] + " | ").rjust(30) + 
