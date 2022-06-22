@@ -19,4 +19,4 @@ Linux/UNIX: https://www.python.org/downloads/source/
 * On Arch, the command would be `sudo pacman -S python3`
 
 ### Installation
-Now, at the top of this page you should see a green `Code` button. Click that, download the zip, extract wherever. Edit the `config.ini` file with a text editor (Notepad on Windows is fine), and edit your latitude and longitude with `lat` and `lon`, respectively. Open a terminal window in the WX-CLI folder. Type in `python3 weather.py`, and you should be getting data! 
+Now, at the top of this page you should see a green `Code` button. Click that, download the zip, extract wherever. Edit the `config.ini` file with a text editor (Notepad on Windows is fine), inside the WX-CLI folder. Edit your latitude and longitude with `lat` and `lon`, respectively. Open a terminal window inside the WX-CLI folder, type in `python3 weather.py`, and you should be getting data! 
