@@ -1,4 +1,4 @@
-# WX-CLI v2.0
+# WX-CLI v2.1.1
 Welcome to WX-CLI... a command line based weather.com API parser. 
 
 ## Features
