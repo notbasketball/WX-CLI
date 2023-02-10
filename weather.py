@@ -2,6 +2,7 @@ import configparser
 import time
 from wman import WeatherMan
 import sys
+import os
 
 # Load API Keys and initialize configparser
 config = configparser.ConfigParser()
@@ -24,10 +25,11 @@ five_day = weatherman.get_five_day(lat, lon)["forecasts"]
 twelve_hour = five_day[0]
 twenty_four_hour = five_day[1]
 thirty_six_hour = five_day[2]
-
-
+def cls():
+    os.system('cls' if os.name=='nt' else 'clear')
+cls()
 print("Updated at: " + str(hour.tm_year) + "-" + str(hour.tm_mon).zfill(2) + "-" + str(hour.tm_mday).zfill(2) + " // " + str(hour.tm_hour).zfill(2) + ":" + str(hour.tm_min).zfill(2))
-print("WX-CLI v2.0")
+print("WX-CLI v2.1.1")
 if alert != None:
     print("")
     print("Alerts:")
